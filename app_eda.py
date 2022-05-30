@@ -28,7 +28,7 @@ def run_eda():
     st.text("")
 
     ### 데이터 삽입 ###
-    df = pd.read_csv('data/car_accident_2016_2020.csv',index_col=0)
+    # df = pd.read_csv('data/car_accident_2016_2020.csv',index_col=0)
 
     #  # 유저가 선택한 컬럼들만 pairplot그리고 그다음에 상관계수를 보여준다.
     # col_list = df.columns[2:]

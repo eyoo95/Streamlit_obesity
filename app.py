@@ -1,8 +1,8 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-# from app_home import run_home
-# from app_eda import run_eda
-# from app_ml import run_ml
+from app_home import run_home
+from app_eda import run_eda
+from app_ml import run_ml
 
 def main():
     st.title('생활패턴으로 알아보는 비만율 예측 앱')
@@ -16,11 +16,11 @@ def main():
         "nav-link-selected": {"background-color": "#ef494c"},
     })
     if menu == 'Home':
-        pass #run_home()
+        run_home()
     elif menu == 'EDA':
-        pass #run_eda()
+        run_eda()
     elif menu == 'ML':
-        pass #run_ml()
+        run_ml()
 
 
 if __name__ == '__main__':
