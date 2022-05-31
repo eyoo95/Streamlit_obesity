@@ -117,7 +117,10 @@ def run_ml():
 
         if y_pred[0,0] < 23:
             st.success('일반적인 사람들의 습관을 갖고있으며 정상적인 범주에 있습니다.\n\n현재의 건강한 습관을 유지하세요.\n\n해당 습관을 가진 사람들의 평균 BMI는 '+ str(round(y_pred[0,0])) +' 입니다.')
+            st.image('https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTExMTJfNDAg%2FMDAxNTczNTM5MDIxMTYz.umA_hxqnSsdsYfQSIGL4Icr00er_1BU1enplZ0lISyog.TsSFrf_crxobhTQ_6Y_hDNlg2at17bqpsfrcM4rahAUg.PNG.rainbi92%2Fimage.png&type=sc960_832',use_column_width=True)
         elif y_pred[0,0] >= 23 and y_pred[0,0] < 30:
             st.warning('비만인 사람들의 습관을 갖고있습니다.\n\n나쁜 습관을 버리고 건강한 습관을 가지세요.\n\n해당 습관을 가진 사람들의 평균 BMI는 '+ str(round(y_pred[0,0])) +' 입니다.')
+            st.image('https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTExMTJfNDAg%2FMDAxNTczNTM5MDIxMTYz.umA_hxqnSsdsYfQSIGL4Icr00er_1BU1enplZ0lISyog.TsSFrf_crxobhTQ_6Y_hDNlg2at17bqpsfrcM4rahAUg.PNG.rainbi92%2Fimage.png&type=sc960_832',use_column_width=True)
         elif y_pred[0,0] >= 30:
             st.error('비만인 사람들의 습관을 많이 갖고있으며 성인병을 주의해야 합니다.\n\n나쁜 습관을 버리고 건강한 습관을 가지세요.\n\n해당 습관을 가진 사람들의 평균 BMI는 '+ str(round(y_pred[0,0])) +' 입니다.')
+            st.image('https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTExMTJfNDAg%2FMDAxNTczNTM5MDIxMTYz.umA_hxqnSsdsYfQSIGL4Icr00er_1BU1enplZ0lISyog.TsSFrf_crxobhTQ_6Y_hDNlg2at17bqpsfrcM4rahAUg.PNG.rainbi92%2Fimage.png&type=sc960_832',use_column_width=True)
