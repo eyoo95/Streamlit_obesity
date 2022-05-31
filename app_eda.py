@@ -42,8 +42,9 @@ def run_eda():
             elif selected_data == data_topic[1]:
                 df_4chart = st.dataframe(df.iloc[:,:3].sort_values(['년도','나이대'],axis=0))
                 if st.checkbox('차트 생성'):
-                     fig = px.line(df, x="년도", y="비만유병률", color='나이대')
-                     st.pyplot(fig)
+                    fig = plt.figure()
+                    px.line(df, x="년도", y="비만유병률", color='나이대')
+                    st.pyplot(fig)
         
             elif selected_data == data_topic[2]:
                 df_4chart = st.dataframe(df.iloc[:,:5].sort_values(['년도','나이대'],axis=0))
