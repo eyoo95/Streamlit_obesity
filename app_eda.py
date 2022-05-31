@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import seaborn as sb
 import matplotlib.pyplot as plt
+import plotly.express as px
 
 ############### 그래프에서 한국어 인식 ###############
 import platform
@@ -40,6 +41,10 @@ def run_eda():
                 df_4chart = st.dataframe(df.sort_values(['년도','나이대'],axis=0))
             elif selected_data == data_topic[1]:
                 df_4chart = st.dataframe(df.iloc[:,:3].sort_values(['년도','나이대'],axis=0))
+                if st.checkbox('차트 생성'):
+                     fig = px.line(df, x="년도", y="비만유병률", color='나이대')
+                     st.pyplot(fig)
+        
             elif selected_data == data_topic[2]:
                 df_4chart = st.dataframe(df.iloc[:,:5].sort_values(['년도','나이대'],axis=0))
             elif selected_data == data_topic[3]:  # 설문형 결과
@@ -54,5 +59,4 @@ def run_eda():
         if selected == radio_menu[1]:
             st.dataframe(df.describe())
 
-    if st.checkbox('차트 생성'):
-        pass
+    
