@@ -17,5 +17,5 @@ def run_home():
     st.text('')
 
 
-    st.text('출처:\nhttps://kosis.kr/statHtml/statHtml.do?orgId=177&tblId=DT_11702_N101&conn_path=I2')
+    st.text('출처:\nhttps://kosis.kr/statHtml/statHtml.do?orgId=177&tblId=DT_11702_N101&conn_path=I2\nhttps://www.kaggle.com/code/mpwolke/obesity-levels-life-style/data')
 
