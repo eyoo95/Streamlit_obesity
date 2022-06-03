@@ -84,7 +84,7 @@ def run_eda():
                 get_age = '|'.join(age_list[1:])
             age_txt = get_age     
             if age_txt == '|'.join(age_list[1:]):
-                age_txt = '전체'
+                age_txt = '전체 나이대'
 
             def year_separater(df,year,value,label):  # 파이 차트를 위한 2018, 2019, 2020 분리 함수
                 v18 = df.loc[df[year]== 2018 ,][value].to_list()
@@ -123,7 +123,7 @@ def run_eda():
                 df_meta_sel = df_meta.loc[df_meta['나이대'].str.contains(get_age),].sort_values(['년도','나이대'],axis=0)
                 st.dataframe(df_meta_sel)
                 if st.button('차트 생성'):
-                    st.info('대사증후군 발병현황을 나타낸 차트입니다.')
+                    st.info('{}의 대사증후군 발병현황을 나타낸 차트입니다.'.format(age_txt))
                     meta_vl = year_separater(df_meta_sel,'년도','명','유형')
                     fig = make_subplots(1, 3, specs=[[{'type':'domain'}, {'type':'domain'},{'type':'domain'}]],
                     subplot_titles=['2018', '2019','2020'])
@@ -138,7 +138,7 @@ def run_eda():
                 df_processed_food_sel = df_processed_food.loc[df_processed_food['나이대'].str.contains(get_age),].sort_values(['년도','나이대'],axis=0)
                 st.dataframe(df_processed_food_sel)
                 if st.button('차트 생성'):
-                    st.info('가공식품 소비빈도를 나타낸 차트입니다.')
+                    st.info('{}의 가공식품 소비빈도를 나타낸 차트입니다.'.format(age_txt))
                     pf_vl = year_separater(df_processed_food_sel,'년도','분율','유형')
                     fig = make_subplots(1, 3, specs=[[{'type':'domain'}, {'type':'domain'},{'type':'domain'}]],
                     subplot_titles=['2018', '2019','2020'])
@@ -152,7 +152,7 @@ def run_eda():
                 df_vacation_sel = df_vacation.loc[df_vacation['나이대'].str.contains(get_age),].sort_values(['년도','나이대'],axis=0)
                 st.dataframe(df_vacation_sel)
                 if st.button('차트 생성'):
-                    st.info('휴가 사용유무를 나타낸 차트입니다.')
+                    st.info('{}의 휴가 사용유무를 나타낸 차트입니다.'.format(age_txt))
                     pf_vc = year_separater(df_vacation_sel,'년도','분율','유형')
                     fig = make_subplots(1, 3, specs=[[{'type':'domain'}, {'type':'domain'},{'type':'domain'}]],
                     subplot_titles=['2018', '2019','2020'])
@@ -166,7 +166,7 @@ def run_eda():
                 df_smart_sel = df_smart.loc[df_smart['나이대'].str.contains(get_age),].sort_values(['년도','나이대'],axis=0)
                 st.dataframe(df_smart_sel)
                 if st.button('차트 생성'):
-                    st.info('스마트기기 사용시간을 나타낸 차트입니다.')
+                    st.info('{}의 스마트기기 사용시간을 나타낸 차트입니다.'.format(age_txt))
                     pf_sm = year_separater(df_smart_sel,'년도','분율','유형')
                     fig = make_subplots(1, 3, specs=[[{'type':'domain'}, {'type':'domain'},{'type':'domain'}]],
                     subplot_titles=['2018', '2019','2020'])
