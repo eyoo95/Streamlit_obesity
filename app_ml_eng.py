@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 
 def run_ml_eng():
-    st.subheader('ML: you can predict your obesity level.')
+    st.subheader('ML: You can predict your obesity level.')
     st.info('Please check the list for your life style information and predict your obesity level.')
     # 예측하기위해서 필요한 파일들을 불러와야 한다.
     # 인공지능파일과 스케일러 파일 2개
@@ -114,10 +114,8 @@ def run_ml_eng():
         img = Image.open('data/20180201213201_9513.jpg')
         if y_pred[0,0] < 23:
             st.success('You have a life style that a normal person has.\n\nKeep your healthy life style.\n\nThe average BMI with the life style you selected was '+ str(round(y_pred[0,0],1)) +'.')
-            st.image(img,use_column_width=True)
         elif y_pred[0,0] >= 23 and y_pred[0,0] < 30:
-            st.warning('You have a life style that an obese person has.\n\nYou need to get away from bad life style and have a healthy life style.\n\nThe average BMI with the life style you selected was '+ str(round(y_pred[0,0],1)) +'.')
-            st.image(img,use_column_width=True)
+            st.warning('You have a life style that an obese person has.\n\nYou need to get away from the bad life style and have a healthy life style.\n\nThe average BMI with the life style you selected was '+ str(round(y_pred[0,0],1)) +'.')
         elif y_pred[0,0] >= 30:
-            st.error('You have a life style that an obese person has.\n\nAnd you need to be alert to the adult disease.\n\nYou have to get away from bad life style and get a healthy life style.\n\nThe average BMI with the life style you selected was '+ str(round(y_pred[0,0],1)) +'.')
-            st.image(img,use_column_width=True)
+            st.error('You have a life style that an obese person has.\n\nAnd you need to be alert to the adult disease.\n\nYou have to get away from the bad life style and get a healthy life style.\n\nThe average BMI with the life style you selected was '+ str(round(y_pred[0,0],1)) +'.')
+        st.image(img,use_column_width=True)
