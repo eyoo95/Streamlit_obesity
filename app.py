@@ -4,6 +4,7 @@ from app_home import run_home
 from app_eda import run_eda
 from app_ml import run_ml
 from app_home_eng import run_home_eng
+from app_eda_eng import run_eda_eng
 from app_ml_eng import run_ml_eng
 
 def main():
@@ -32,7 +33,7 @@ def main():
         if menu == 'Home':
             run_home_eng()
         elif menu == 'EDA':
-            run_eda()
+            run_eda_eng()
         elif menu == 'ML':
             run_ml_eng()
 

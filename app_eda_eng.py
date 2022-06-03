@@ -22,7 +22,7 @@ else:
     print('Unknown system')
 ############### 그래프에서 한국어 인식 ###############
 
-def run_eda():
+def run_eda_eng():
     st.subheader('EDA: 데이터 분석')
     st.info('대한민국의 대사증후군 통계와 생활습관 통계를 분석할수 있습니다.')
 

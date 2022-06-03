@@ -26,16 +26,47 @@ def run_eda():
     st.subheader('EDA: 데이터 분석')
     st.info('대한민국의 대사증후군 통계와 생활습관 통계를 분석할수 있습니다.')
 
-    ### 데이터프레임 가져오기###
+    ### csv 가져오기###
     df = pd.read_csv('data/Obesity_2018_2020.csv',index_col=0)
     df_disease = pd.read_csv('data/df_disease.csv',index_col=0)
     df_meta = pd.read_csv('data/df_meta.csv',encoding='cp949')
     df_processed_food = pd.read_csv('data/df_processed_food.csv',encoding='cp949')
     df_vacation = pd.read_csv('data/df_vacation.csv',encoding='cp949')
     df_smart = pd.read_csv('data/df_smart.csv',encoding='cp949')
+    df_lifestyle = pd.read_csv('data/Obesity_Levels_&_Life_Style(1).csv')
 
 
-    # 라디오 버튼을 이용하여 데이터프레임과 통계치를 선택래서 볼수있게 한다.
+    # 유저가 선택한 컬럼들 상관계수를 보여준다.
+    col_list = df_lifestyle.columns[2:]
+    col_kor = ['가족병력', '고칼로리 음식 섭취빈도', '채소 섭취 빈도', '식사시간 외 음식 섭취', '흡연여부', '수분 섭취 빈도', '활동 빈도', '스마트기기 사용빈도', '알콜 섭취 빈도', '체질량 지수']
+
+    if st.checkbox('학습데이터의 상관관계 확인'):
+        st.text('')
+        selected_list = st.multiselect('상관관계를 보기 원하면, 하나 이상의 컬럼을 선택하세요',col_list)
+        st.text('')
+        df_choice = df_lifestyle[selected_list]
+        radio_corr = ['그래프','표','히트맵']
+        if len(selected_list) > 1:
+            select_corr = st.radio('상관계수를 표시할 방법을 선택하세요.',radio_corr)
+            st.text('')
+            st.text('선택한 컬럼들의 상관계수입니다.')
+
+            if select_corr == radio_corr[0]:               
+                fig = sb.pairplot(data = df_lifestyle[selected_list])
+                st.pyplot(fig)
+
+            if select_corr == radio_corr[1]:     
+                st.dataframe(df_choice.corr())
+            
+            if select_corr == radio_corr[2]:  
+                fig2 = plt.figure()
+                sb.heatmap(data= df_lifestyle[selected_list].corr(),annot=True,fmt='.2f', vmin=-1, vmax=1, cmap='coolwarm',linewidths= 0.5)
+                st.pyplot(fig2)
+
+            st.warning('위쪽의 상관관계 확인 체크박스를 풀어서 상관관계 표를 해제할수 있습니다.')
+            st.write("""***""")
+
+    # 라디오 버튼을 이용하여 데이터프레임과 통계치를 선택해서 볼수있게 한다.
     if st.checkbox('데이터프레임 생성'):
         st.text('')
 
@@ -106,97 +137,61 @@ def run_eda():
         if selected == radio_menu[1]:
             st.dataframe(df.describe())
 
-    
-# # 유저가 선택한 컬럼들만 pairplot그리고 그다음에 상관계수를 보여준다.
-#     col_list = df.columns[2:]
-#     if st.checkbox('상관관계 확인'):
-#         st.text('')
-#         selected_list = st.multiselect('상관관계를 보기 원하면, 하나 이상의 컬럼을 선택하세요',col_list)
-#         st.text('')
-#         df_choice = df[selected_list]
-#         radio_corr = ['그래프','표','히트맵']
-#         if len(selected_list) > 1:
-#             select_corr = st.radio('상관계수를 표시할 방법을 선택하세요.',radio_corr)
-#             st.text('')
 
-#             if select_corr == radio_corr[0]:
 
-#                 st.text('선택한 컬럼들의 상관계수입니다.')
-#                 fig = sb.pairplot(data = df[selected_list])
-#                 st.pyplot(fig)
-#                 st.warning('위쪽의 상관관계 확인 체크박스를 풀어서 상관관계 표를 해제할수 있습니다.')
-#                 st.write("""***""")
 
-#             if select_corr == radio_corr[1]:
+    # # 라디오 버튼을 이용하여 데이터프레임과 통계치를 선택해서 볼수있게 한다.
+    # if st.checkbox('데이터프레임과 차트 생성'):
+    #     st.text('')
 
-#                 st.text('선택한 컬럼들의 상관계수입니다.')
-#                 st.dataframe(df_choice.corr())
-#                 st.warning('위쪽의 상관관계 확인 체크박스를 풀어서 상관관계 표를 해제할수 있습니다.')
-#                 st.write("""***""")
+    #     radio_menu = ['데이터프레임','통계치']
+    #     selected = st.radio('보고 싶은 데이터프레임을 선택하세요.', radio_menu)
+
+    #     if selected == radio_menu[0]:
             
-#             if select_corr == radio_corr[2]:
+    #         region_list = ['전체' , '강원' , '경기' , '경남' , '경북' , '광주' , '대구' , '대전' , '부산' , '서울' , '울산' , '인천' , '전남' , '전북' , '제주' , '충남' , '충북']
+    #         get_region = st.selectbox('지역을 선택하여 데이터를 검색합니다.',region_list)
+    #         year_list = ['전체','2020','2019','2018','2017','2016']
+    #         get_year = st.selectbox('해당 연도의 데이터를 검색합니다.',year_list) 
 
-#                 st.text('선택한 컬럼들의 상관계수입니다.')
-#                 fig2 = plt.figure()
-#                 sb.heatmap(data= df[selected_list].corr(),annot=True,fmt='.2f', vmin=-1, vmax=1, cmap='coolwarm',linewidths= 0.5)
-#                 st.pyplot(fig2)
-#                 st.warning('위쪽의 상관관계 확인 체크박스를 풀어서 상관관계 표를 해제할수 있습니다.')
-#                 st.write("""***""")
+    #         # 전체 행을 나타내기 위한 사전작업
+    #         if get_region == region_list[0]:
+    #             get_region = '|'.join(region_list[1:])
+    #         if get_year == year_list[0]:
+    #             get_year = '|'.join(year_list[1:])
 
+    #         region_txt = get_region
+    #         year_txt = get_year
+    #         if region_txt == '|'.join(region_list[1:]):
+    #             region_txt = '전체'            
+    #         if year_txt == '|'.join(year_list[1:]):
+    #             year_txt = '전체'
 
+    #         # 데이터프레임과 차트 나타내기
+    #         selected_df = df.loc[(df['date'].str.contains(get_year))&(df['시도별'].str.contains(get_region)),]
+    #         st.dataframe(selected_df)
+    #         selected_col_for_chart = st.selectbox('차트를 생성하기 원하면 컬럼을 선택하세요',col_list)
+    #         if st.button('차트확인'):
+    #             fig = plt.figure()
 
-#     # 라디오 버튼을 이용하여 데이터프레임과 통계치를 선택해서 볼수있게 한다.
-#     if st.checkbox('데이터프레임과 차트 생성'):
-#         st.text('')
-
-#         radio_menu = ['데이터프레임','통계치']
-#         selected = st.radio('보고 싶은 데이터프레임을 선택하세요.', radio_menu)
-
-#         if selected == radio_menu[0]:
-            
-#             region_list = ['전체' , '강원' , '경기' , '경남' , '경북' , '광주' , '대구' , '대전' , '부산' , '서울' , '울산' , '인천' , '전남' , '전북' , '제주' , '충남' , '충북']
-#             get_region = st.selectbox('지역을 선택하여 데이터를 검색합니다.',region_list)
-#             year_list = ['전체','2020','2019','2018','2017','2016']
-#             get_year = st.selectbox('해당 연도의 데이터를 검색합니다.',year_list) 
-
-#             # 전체 행을 나타내기 위한 사전작업
-#             if get_region == region_list[0]:
-#                 get_region = '|'.join(region_list[1:])
-#             if get_year == year_list[0]:
-#                 get_year = '|'.join(year_list[1:])
-
-#             region_txt = get_region
-#             year_txt = get_year
-#             if region_txt == '|'.join(region_list[1:]):
-#                 region_txt = '전체'            
-#             if year_txt == '|'.join(year_list[1:]):
-#                 year_txt = '전체'
-
-#             # 데이터프레임과 차트 나타내기
-#             selected_df = df.loc[(df['date'].str.contains(get_year))&(df['시도별'].str.contains(get_region)),]
-#             st.dataframe(selected_df)
-#             selected_col_for_chart = st.selectbox('차트를 생성하기 원하면 컬럼을 선택하세요',col_list)
-#             if st.button('차트확인'):
-#                 fig = plt.figure()
-
-#                 if selected_col_for_chart in col_list[4:9]:                    
-#                     st.info('{}년도 {}지역 {}의 합을 나타낸 차트입니다.'.format(year_txt,region_txt,selected_col_for_chart))
-#                     x = selected_df.groupby('date')[[selected_col_for_chart]].sum().index
-#                     y = selected_df.groupby('date')[[selected_col_for_chart]].sum()
+    #             if selected_col_for_chart in col_list[4:9]:                    
+    #                 st.info('{}년도 {}지역 {}의 합을 나타낸 차트입니다.'.format(year_txt,region_txt,selected_col_for_chart))
+    #                 x = selected_df.groupby('date')[[selected_col_for_chart]].sum().index
+    #                 y = selected_df.groupby('date')[[selected_col_for_chart]].sum()
                 
-#                 else:
-#                     st.info('{}년도 {}지역 {}의 평균변화량을 나타낸 차트입니다.'.format(year_txt,region_txt,selected_col_for_chart))
-#                     x = selected_df.groupby('date')[[selected_col_for_chart]].mean().index
-#                     y = selected_df.groupby('date')[[selected_col_for_chart]].mean()
+    #             else:
+    #                 st.info('{}년도 {}지역 {}의 평균변화량을 나타낸 차트입니다.'.format(year_txt,region_txt,selected_col_for_chart))
+    #                 x = selected_df.groupby('date')[[selected_col_for_chart]].mean().index
+    #                 y = selected_df.groupby('date')[[selected_col_for_chart]].mean()
 
-#                 plt.xlabel('Date')
-#                 plt.ylabel(selected_col_for_chart)
-#                 if year_txt == '전체':
-#                     plt.xticks(rotation = 45, fontsize=4 )
-#                 else:
-#                     plt.xticks(rotation = 45)
-#                 plt.plot(x,y)
-#                 st.pyplot(fig)
+    #             plt.xlabel('Date')
+    #             plt.ylabel(selected_col_for_chart)
+    #             if year_txt == '전체':
+    #                 plt.xticks(rotation = 45, fontsize=4 )
+    #             else:
+    #                 plt.xticks(rotation = 45)
+    #             plt.plot(x,y)
+    #             st.pyplot(fig)
 
-#         if selected == radio_menu[1]:
-#             st.dataframe(df.describe())
+    #     if selected == radio_menu[1]:
+    #         st.dataframe(df.describe())
