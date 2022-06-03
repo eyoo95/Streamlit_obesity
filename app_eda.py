@@ -54,7 +54,7 @@ def run_eda():
             elif selected_data == data_topic[1]:
                 
                 st.dataframe(df.iloc[:,:3].sort_values(['년도','나이대'],axis=0))
-                st.text('*비만유병률은 체질량지수(bmi)가 25kg/㎡ 이상인 분율입니다.')
+                st.text('*비만유병률은 체질량지수(bmi)가 25kg/㎡ 이상인 사람들의 분율입니다.')
                 if st.button('차트 생성'):
                     st.info('년도별, 나이대별로 비만유병률을 나타낸 차트입니다.')
                     fig = px.line(df, x="년도", y="비만유병률", color='나이대',markers=True)
@@ -64,7 +64,7 @@ def run_eda():
             elif selected_data == data_topic[2]:
                 st.dataframe(df_disease.sort_values(['년도','나이대'],axis=0))
                 if st.button('차트 생성'):
-                    st.info('대사증후군 위험요인을 나타낸 차트입니다.')
+                    st.info('대사증후군을 앓고있는 사람중 관련 위험요인을 보유한 사람의 분율을 나타낸 차트입니다.')
                     fig = px.pie(df_disease, values='명', names='유형')
                     st.plotly_chart(fig)
 

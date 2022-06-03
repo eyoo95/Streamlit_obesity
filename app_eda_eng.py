@@ -54,7 +54,7 @@ def run_eda():
             elif selected_data == data_topic[1]:
                 
                 st.dataframe(df.iloc[:,:3].sort_values(['년도','나이대'],axis=0))
-                st.text('*비만유병률은 체질량지수(bmi)가 25kg/㎡ 이상인 분율입니다.')
+                st.text('*비만유병률은 체질량지수(bmi)가 25kg/㎡ 이상인 사람들의 분율입니다.')
                 if st.button('차트 생성'):
                     st.info('년도별, 나이대별로 비만유병률을 나타낸 차트입니다.')
                     fig = px.line(df, x="년도", y="비만유병률", color='나이대',markers=True)
