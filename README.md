@@ -46,5 +46,5 @@ Kaggle (남미 비만과 생활습관 데이터)
 
 *영어로 설정하면 대한민국 통계는 나타내지 않게 했습니다.
 
-앱 주소: 
+- 앱 주소: 
 >http://ec2-52-79-80-210.ap-northeast-2.compute.amazonaws.com:8502/
