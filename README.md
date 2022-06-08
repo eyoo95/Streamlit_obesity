@@ -118,7 +118,7 @@ pip install joblib
 ``` python
 pip install numpy
 ```
--plotly
+- plotly
 ``` python
 pip install plotly
 ```
