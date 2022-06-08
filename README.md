@@ -22,17 +22,17 @@
 
 Dataset:
 
-- KOSIS (대한민국 생활습관 및 질병통계)
--- 비만 유병률(체질량지수 기준) 추이
--- 연령별 성별 대사증후군 위험요인 보유개수별 현황
--- 연령별 성별 대사증후군 위험요인별 현황
--- 가공식품 구입 주기
--- 지난 1년 동안) 휴가 경험 여부
--- 스마트 기기 활용 시간_평일
+KOSIS (대한민국 생활습관 및 질병통계)
+- 비만 유병률(체질량지수 기준) 추이
+- 연령별 성별 대사증후군 위험요인 보유개수별 현황
+- 연령별 성별 대사증후군 위험요인별 현황
+- 가공식품 구입 주기
+- 지난 1년 동안) 휴가 경험 여부
+- 스마트 기기 활용 시간_평일
 >https://kosis.kr/statHtml/statHtml.do?orgId=177&tblId=DT_11702_N101&conn_path=I2
 >
-- Kaggle (남미 비만과 생활습관 데이터)
--- Obesity Levels & Life Style
+Kaggle (남미 비만과 생활습관 데이터)
+- Obesity Levels & Life Style
 >https://www.kaggle.com/code/mpwolke/obesity-levels-life-style/data
 
 
