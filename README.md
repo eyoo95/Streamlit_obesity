@@ -105,5 +105,7 @@ Kaggle (남미 비만과 생활습관 데이터)
 >pip install joblib
 - numpy
 >pip install numpy
+-plotly
+>pip install plotly
 
 인공지능은 Random Forest를 사용했습니다.
