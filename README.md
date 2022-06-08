@@ -30,7 +30,8 @@ KOSIS (대한민국 생활습관 및 질병통계)
 - 지난 1년 동안) 휴가 경험 여부
 - 스마트 기기 활용 시간_평일
 >https://kosis.kr/statHtml/statHtml.do?orgId=177&tblId=DT_11702_N101&conn_path=I2
->
+
+
 Kaggle (남미 비만과 생활습관 데이터)
 - Obesity Levels & Life Style
 >https://www.kaggle.com/code/mpwolke/obesity-levels-life-style/data
@@ -45,6 +46,7 @@ Kaggle (남미 비만과 생활습관 데이터)
 인공지능은 Random Forest를 사용했습니다.
 
 *영어로 설정하면 대한민국 통계는 나타내지 않게 했습니다.
+
 
 - 앱 주소: 
 >http://ec2-52-79-80-210.ap-northeast-2.compute.amazonaws.com:8502/
