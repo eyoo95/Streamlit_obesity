@@ -36,6 +36,7 @@
 >>(지난 1년 동안) 휴가 경험 여부; 
 >>
 >>스마트 기기 활용 시간_평일
+>>
 >>https://kosis.kr/statHtml/statHtml.do?orgId=177&tblId=DT_11702_N101&conn_path=I2
 >
 >Kaggle (남미 비만과 생활습관 데이터)
