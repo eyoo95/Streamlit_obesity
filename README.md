@@ -127,4 +127,4 @@ pip install plotly
 ```
 
 인공지능은 Random Forest를 사용했습니다.
->정확도: 0.6653343300801716
+>MSE(Mean Squared Error): 0.6653343300801716
