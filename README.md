@@ -90,23 +90,38 @@ Kaggle (남미 비만과 생활습관 데이터)
 사용된 라이브러리
 ----
 - streamlit
->pip install streamlit
->
->streamlit hello
+``` python
+pip install streamlit
+streamlit hello
+```
 - streamlit_option_menu
->pip install streamlit_option_menu
+``` python
+pip install streamlit_option_menu
+```
 - pandas
->pip install pandas
+``` python
+pip install streamlit_option_menu
+```
 - seaborn
->pip install seaborn
-- matplotlib.pyplot
-> pip install matplotlib
+``` python
+pip install seaborn
+```
+- matplotlib
+``` python
+pip install matplotlib
+```
 - joblib
->pip install joblib
+``` python
+pip install joblib
+```
 - numpy
->pip install numpy
+``` python
+pip install numpy
+```
 -plotly
->pip install plotly
+``` python
+pip install plotly
+```
 
 인공지능은 Random Forest를 사용했습니다.
 >정확도: 0.6653343300801716
