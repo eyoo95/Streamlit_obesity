@@ -6,6 +6,8 @@
 
 사이드바에서 한국어와 영어를 고를수 있도록 했습니다.
 
+*영어로 설정하면 대한민국 통계는 나타내지 않게 했습니다.
+
 앱주소
 ----
 http://ec2-52-79-80-210.ap-northeast-2.compute.amazonaws.com:8502/
@@ -103,12 +105,5 @@ Kaggle (남미 비만과 생활습관 데이터)
 >pip install joblib
 - numpy
 >pip install numpy
--plotly
->pip install plotly
->
 
 인공지능은 Random Forest를 사용했습니다.
-
-----
-
-*영어로 설정하면 대한민국 통계는 나타내지 않게 했습니다.
