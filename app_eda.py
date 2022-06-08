@@ -179,38 +179,3 @@ def run_eda():
 
         if selected == radio_menu[1]:
             st.dataframe(df.describe())
-
-
-
-
-
-            
-
-    #         # 데이터프레임과 차트 나타내기
-    #         selected_df = df.loc[(df['date'].str.contains(get_year))&(df['시도별'].str.contains(get_region)),]
-    #         st.dataframe(selected_df)
-    #         selected_col_for_chart = st.selectbox('차트를 생성하기 원하면 컬럼을 선택하세요',col_list)
-    #         if st.button('차트확인'):
-    #             fig = plt.figure()
-
-    #             if selected_col_for_chart in col_list[4:9]:                    
-    #                 st.info('{}년도 {}지역 {}의 합을 나타낸 차트입니다.'.format(year_txt,region_txt,selected_col_for_chart))
-    #                 x = selected_df.groupby('date')[[selected_col_for_chart]].sum().index
-    #                 y = selected_df.groupby('date')[[selected_col_for_chart]].sum()
-                
-    #             else:
-    #                 st.info('{}년도 {}지역 {}의 평균변화량을 나타낸 차트입니다.'.format(year_txt,region_txt,selected_col_for_chart))
-    #                 x = selected_df.groupby('date')[[selected_col_for_chart]].mean().index
-    #                 y = selected_df.groupby('date')[[selected_col_for_chart]].mean()
-
-    #             plt.xlabel('Date')
-    #             plt.ylabel(selected_col_for_chart)
-    #             if year_txt == '전체':
-    #                 plt.xticks(rotation = 45, fontsize=4 )
-    #             else:
-    #                 plt.xticks(rotation = 45)
-    #             plt.plot(x,y)
-    #             st.pyplot(fig)
-
-    #     if selected == radio_menu[1]:
-    #         st.dataframe(df.describe())
