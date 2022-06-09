@@ -41,7 +41,7 @@ KOSIS (대한민국 생활습관 및 질병통계)
 >https://kosis.kr/statHtml/statHtml.do?orgId=177&tblId=DT_11702_N101&conn_path=I2
 
 
-Kaggle (남미 비만과 생활습관 데이터)
+Kaggle (남미 비만과 생활습관 캐글 데이터)
 - Obesity Levels & Life Style
 >https://www.kaggle.com/code/mpwolke/obesity-levels-life-style/data
 
