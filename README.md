@@ -95,7 +95,6 @@ Kaggle (남미 비만과 생활습관 데이터)
 - streamlit
 ``` python
 pip install streamlit
-streamlit hello
 ```
 - streamlit_option_menu
 ``` python
