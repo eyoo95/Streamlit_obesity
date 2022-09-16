@@ -11,7 +11,7 @@
 
 앱주소
 ----
-http://ec2-52-79-80-210.ap-northeast-2.compute.amazonaws.com:8502/
+http://ec2-43-201-29-138.ap-northeast-2.compute.amazonaws.com:8501
 
 메뉴구성
 ----
