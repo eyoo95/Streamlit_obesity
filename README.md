@@ -11,7 +11,8 @@
 
 앱주소
 ----
-http://ec2-43-201-29-138.ap-northeast-2.compute.amazonaws.com:8501
+~~http://ec2-43-201-29-138.ap-northeast-2.compute.amazonaws.com:8501~~
+http://www.esyoo.site:8501/
 
 메뉴구성
 ----
